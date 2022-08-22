@@ -1,0 +1,26 @@
+package br.com.wbraga.desafioalura.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.wbraga.desafioalura.entities.Lancamentos;
+import br.com.wbraga.desafioalura.repositories.LancamentosRepository;
+
+@Service
+public class LancamentosService {
+
+	@Autowired
+	private LancamentosRepository repository;
+	
+	public List<Lancamentos> findAll(){
+		return repository.findAll();
+	}
+	
+	public Lancamentos finById(Long id) {
+		Optional<Lancamentos> obj = repository.findById(id);
+		return obj.get();
+ 	}
+}

@@ -1,0 +1,30 @@
+package br.com.wbraga.desafioalura.config;
+
+import java.time.Instant;
+import java.util.Arrays;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+
+import br.com.wbraga.desafioalura.entities.Lancamentos;
+import br.com.wbraga.desafioalura.entities.enums.TipoLancamento;
+import br.com.wbraga.desafioalura.repositories.LancamentosRepository;
+
+@Configuration
+@Profile("test")
+public class TestConfig implements CommandLineRunner {
+	
+	private LancamentosRepository lancamentoRepository;
+
+	@Override
+	public void run(String... args) throws Exception {
+
+		Lancamentos lanc1 = new Lancamentos(null, "Meu Primento lancamento - Salario", 3500.00, Instant.parse("2022-06-20T21:53:07Z"), TipoLancamento.RECEITA);
+		Lancamentos lanc2 = new Lancamentos(null, "Meu Segundo lancamento - Gasto1", 150.59, Instant.parse("2022-06-20T21:53:07Z"), TipoLancamento.DESPESA);
+		Lancamentos lanc3 = new Lancamentos(null, "Meu Terceiro lancamento - Gasto2", 150.59, Instant.parse("2022-06-20T21:53:07Z"), TipoLancamento.DESPESA);
+		
+		lancamentoRepository.saveAll(Arrays.asList(lanc1,lanc2,lanc3));
+	
+	}
+}

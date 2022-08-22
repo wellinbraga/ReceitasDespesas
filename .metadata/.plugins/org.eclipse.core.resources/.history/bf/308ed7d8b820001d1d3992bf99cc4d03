@@ -1,0 +1,17 @@
+package br.com.wbraga.desafioalura.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
+
+import br.com.wbraga.desafioalura.entities.Lancamentos;
+import br.com.wbraga.desafioalura.entities.enums.TipoLancamento;
+
+public interface  LancamentosRepository extends JpaRepositoryImplementation<Lancamentos, Long> {
+	
+	
+	@Query("SELECT l FROM Lancamentos AS l where tipoLancamento = :tipolancamento")
+	public List<Lancamentos> findReceitaDespesa(@Param("tipolancamento")  TipoLancamento.RECEITA);
+
+}

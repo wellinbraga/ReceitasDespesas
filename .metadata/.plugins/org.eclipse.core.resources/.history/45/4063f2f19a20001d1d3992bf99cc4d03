@@ -1,0 +1,8 @@
+package br.com.wbraga.desafioalura.entities;
+
+public class Snippet {
+	public static void main(String[] args) {
+		valueOf
+	}
+}
+

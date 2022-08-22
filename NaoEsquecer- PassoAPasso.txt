@@ -1,0 +1,19 @@
+## Criar Clase-entidades
+
+- Tipos / Parametros
+
+- Contrutor
+- Getters and Setters
+- HashCode Equals
+- implementes Serializable
+
+- Inserir anotações
+
+## Criar Repositorios 
+- Interface - fara o papel dos Cruds pelo JPA SprintBoot
+-- extends JpaRepositoryImplementation
+-- Recebe a Classse e tipo Long (ID do objeto)
+
+## Criar Services
+-- Classe que tem a regras de crud comunica com o Banco 
+ 
